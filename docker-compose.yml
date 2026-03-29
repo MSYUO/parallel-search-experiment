@@ -1,0 +1,13 @@
+services:
+  worker:
+    build: .
+    environment:
+      - DIFFICULTY=${DIFFICULTY:-5}
+      - K_TARGET=${K_TARGET:-10}
+      - TRIAL_NUMBER=${TRIAL_NUMBER:-1}
+    volumes:
+      - ./results:/results
+    deploy:
+      replicas: ${N_WORKERS:-1}
+      restart_policy:
+        condition: none
