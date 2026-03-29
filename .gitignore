@@ -1,0 +1,10 @@
+results/*.json
+results/*.csv
+figures/
+__pycache__/
+.env
+*.pyc
+results/.claimed_id_*
+results/.worker_id_counter*
+results/.gitkeep
+!results/.gitkeep
