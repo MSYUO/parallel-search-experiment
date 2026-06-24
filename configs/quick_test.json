@@ -1,0 +1,11 @@
+{
+  "experiment_name": "quick_test",
+  "environment": "docker-compose",
+  "difficulty_values": [4],
+  "k_values": [3],
+  "worker_counts": [1, 2],
+  "trials": 2,
+  "output_root": "results/quick_test",
+  "notes": "Small smoke-test grid for validating config parsing and the future config-driven pipeline.",
+  "lambda_calibration_required": true
+}

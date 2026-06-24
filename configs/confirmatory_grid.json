@@ -1,0 +1,11 @@
+{
+  "experiment_name": "confirmatory_grid",
+  "environment": "docker-compose",
+  "difficulty_values": [5, 6],
+  "k_values": [1, 3, 10, 40],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 20,
+  "output_root": "results/confirmatory_grid",
+  "notes": "Confirmatory grid for selected low, mid, high, and hard regimes; increase to 30 trials if runtime permits.",
+  "lambda_calibration_required": true
+}

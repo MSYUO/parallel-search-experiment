@@ -1,0 +1,11 @@
+{
+  "experiment_name": "kips_reproduction",
+  "environment": "docker-compose",
+  "difficulty_values": [6],
+  "k_values": [10],
+  "worker_counts": [1, 2, 4, 8, 16],
+  "trials": 30,
+  "output_root": "results/kips_reproduction",
+  "notes": "Original KIPS reproduction grid for the Docker Compose SHA-256 prefix-search experiment.",
+  "lambda_calibration_required": true
+}

@@ -1,0 +1,16 @@
+{
+  "experiment_name": "online_scenario_test",
+  "environment": "docker-compose",
+  "difficulty_values": [4, 5, 6],
+  "k_values": [1, 3, 10, 20, 40],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 10,
+  "output_root": "results/online_scenario_test",
+  "notes": "Inspection-only online scenario config with train/test splits for future N=1 calibration based policy evaluation.",
+  "lambda_calibration_required": true,
+  "train_difficulty_values": [4, 5],
+  "test_difficulty_values": [6],
+  "train_k_values": [1, 3, 10],
+  "test_k_values": [20, 40],
+  "calibration_N": 1
+}

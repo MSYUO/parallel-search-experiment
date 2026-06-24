@@ -1,0 +1,11 @@
+{
+  "experiment_name": "discovery_grid",
+  "environment": "docker-compose",
+  "difficulty_values": [4, 5],
+  "k_values": [1, 3, 5, 10, 20, 40],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 10,
+  "output_root": "results/discovery_grid",
+  "notes": "Discovery grid for identifying regimes where efficient worker count differs from Core-count.",
+  "lambda_calibration_required": true
+}

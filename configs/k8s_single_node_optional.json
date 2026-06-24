@@ -1,0 +1,11 @@
+{
+  "experiment_name": "k8s_single_node_optional",
+  "environment": "k8s-single-node",
+  "difficulty_values": [5],
+  "k_values": [10],
+  "worker_counts": [1, 2, 4, 6, 8, 12],
+  "trials": 10,
+  "output_root": "results/k8s_single_node_optional",
+  "notes": "Optional single-node Kubernetes comparison config only; not required for the main JIPS v5 claim.",
+  "lambda_calibration_required": true
+}
