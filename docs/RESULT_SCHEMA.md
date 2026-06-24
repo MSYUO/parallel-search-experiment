@@ -104,7 +104,7 @@ Columns:
 | `ci95_high` | Upper 95% confidence interval bound for mean `T_real`. |
 | `lambda_hat` | Workload-specific single-worker success-rate estimate. |
 | `T_theory` | Ideal modeled completion time, `k / (N * lambda_hat)`. |
-| `delta_N` | Empirical overhead, `mean_T_real - T_theory`. |
+| `delta_N` | Empirical overhead, `mean_T_real - T_theory`. Observed values are not clipped. |
 | `speedup` | Observed speedup, `mean_T_real(N=1) / mean_T_real(N)`. |
 | `parallel_efficiency` | `speedup / N`. |
 | `relative_error_percent` | `(mean_T_real - T_theory) / T_theory * 100`. |
@@ -114,7 +114,7 @@ Columns:
 | `core_count_T` | Mean `T_real` at `core_count_N`, if that worker count is available. |
 | `core_count_regret_seconds` | `core_count_T - oracle_T`, if Core-count data is available. |
 | `core_count_regret_percent` | `core_count_regret_seconds / oracle_T * 100`, if available. |
-| `oracle_differs_from_core_count` | Whether `oracle_N` differs from `core_count_N`. |
+| `oracle_differs_from_core_count` | Whether `oracle_N` differs from `core_count_N`; `unassessable` when the Core-count worker count is not present. |
 
 ## Workload-Specific Lambda
 
@@ -139,6 +139,12 @@ If `N=1` data is missing for a workload group, theory-based fields such as
 `relative_error_percent` should be left empty for that group and a warning should
 be printed.
 
+Observed `delta_N` is kept as measured in the summary. In very small smoke tests
+or low-trial stochastic measurements, `delta_N` can be negative because the
+measured mean may fall below the ideal modeled time by chance. Prediction models
+may use conservative nonnegative clipping for fitted overhead, but the observed
+summary statistic should not be clipped.
+
 ## Core-Count Baseline Fields
 
 The Core-count baseline represents the physical-core heuristic. For the current
@@ -150,9 +156,9 @@ core_count_N = 6
 
 The summary records the observed Core-count runtime when `N=6` exists in the
 merged data. It also records regret relative to Oracle for each workload group.
-If `N=6` is not available, `core_count_T` and regret fields are left empty while
-`oracle_differs_from_core_count` still reports whether Oracle's selected worker
-count differs from the Core-count worker count.
+If `N=6` is not available, `core_count_T` and regret fields are left empty, and
+`oracle_differs_from_core_count` is marked `unassessable`. The analysis should
+not fabricate Core-count results for unmeasured worker counts.
 
 ## Modeling Scope
 

@@ -241,11 +241,13 @@ def build_summary(rows: list[dict[str, Any]], core_count_n: int) -> list[dict[st
         if core_t is None:
             core_regret_seconds = None
             core_regret_percent = None
+            oracle_differs_from_core_count: bool | str = "unassessable"
         else:
             core_regret_seconds = core_t - oracle_t
             core_regret_percent = (
                 (core_regret_seconds / oracle_t) * 100.0 if oracle_t > 0 else None
             )
+            oracle_differs_from_core_count = oracle_n != core_count_n
 
         workload_metadata[workload_key] = {
             "lambda_hat": lambda_hat,
@@ -255,7 +257,7 @@ def build_summary(rows: list[dict[str, Any]], core_count_n: int) -> list[dict[st
             "core_count_T": core_t,
             "core_count_regret_seconds": core_regret_seconds,
             "core_count_regret_percent": core_regret_percent,
-            "oracle_differs_from_core_count": oracle_n != core_count_n,
+            "oracle_differs_from_core_count": oracle_differs_from_core_count,
         }
 
     summary_rows: list[dict[str, str]] = []
@@ -329,9 +331,11 @@ def build_summary(rows: list[dict[str, Any]], core_count_n: int) -> list[dict[st
                     if isinstance(metadata["core_count_regret_percent"], float)
                     else None
                 ),
-                "oracle_differs_from_core_count": str(
-                    metadata["oracle_differs_from_core_count"]
-                ).lower(),
+                "oracle_differs_from_core_count": (
+                    str(metadata["oracle_differs_from_core_count"]).lower()
+                    if isinstance(metadata["oracle_differs_from_core_count"], bool)
+                    else str(metadata["oracle_differs_from_core_count"])
+                ),
             }
         )
 
