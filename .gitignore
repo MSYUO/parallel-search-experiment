@@ -9,3 +9,8 @@ results/.claimed_id_*
 results/.worker_id_counter*
 results/.gitkeep
 !results/.gitkeep
+
+# Local experiment artifacts
+logs/
+paper_artifacts/
+*.tar.gz
