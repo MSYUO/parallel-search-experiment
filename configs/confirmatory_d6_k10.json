@@ -1,0 +1,11 @@
+{
+  "experiment_name": "confirmatory_d6_k10",
+  "environment": "docker-compose",
+  "difficulty_values": [6],
+  "k_values": [10],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 20,
+  "output_root": "results/raw",
+  "lambda_calibration_required": true,
+  "notes": "Confirmatory validation for the primary JIPS regime identified by medium reproduction and discovery_probe. This experiment tests difficulty=6, k=10 across Core-count N=6, near-optimal N=8, Thread-count N=12, and Max-worker N=16."
+}

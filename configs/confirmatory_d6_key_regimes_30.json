@@ -1,0 +1,11 @@
+{
+  "experiment_name": "confirmatory_d6_key_regimes_30",
+  "environment": "docker-compose",
+  "difficulty_values": [6],
+  "k_values": [3, 10, 40],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 30,
+  "output_root": "results/raw",
+  "lambda_calibration_required": true,
+  "notes": "Travel-run confirmatory validation for the key difficulty=6 regimes identified by discovery_probe. It validates k=3, k=10, and k=40 with 30 trials each across Core-count N=6, near-optimal N=8, Thread-count N=12, and Max-worker N=16."
+}

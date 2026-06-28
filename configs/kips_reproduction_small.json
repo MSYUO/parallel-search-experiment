@@ -1,0 +1,11 @@
+{
+  "experiment_name": "kips_reproduction_small",
+  "environment": "docker-compose",
+  "difficulty_values": [6],
+  "k_values": [10],
+  "worker_counts": [1, 2, 4, 8, 16],
+  "trials": 5,
+  "output_root": "results/kips_reproduction_small",
+  "notes": "Smaller KIPS reproduction grid for fast validation before running the full 30-trial reproduction.",
+  "lambda_calibration_required": true
+}

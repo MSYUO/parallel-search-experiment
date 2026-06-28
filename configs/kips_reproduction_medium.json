@@ -1,0 +1,11 @@
+{
+  "experiment_name": "kips_reproduction_medium",
+  "environment": "docker-compose",
+  "difficulty_values": [6],
+  "k_values": [10],
+  "worker_counts": [1, 2, 4, 6, 8, 12, 16],
+  "trials": 10,
+  "output_root": "results/kips_reproduction_medium",
+  "notes": "Medium KIPS reproduction grid for JIPS validation between the 25-trial small reproduction and the 150-trial full KIPS reproduction. Includes Core-count N=6 and Thread-count N=12 baselines.",
+  "lambda_calibration_required": true
+}
